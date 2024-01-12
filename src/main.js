@@ -3,13 +3,15 @@ const API_KEY = '41741201-12a642cf53882fe64e8e82723';
 const formEl = document.querySelector('.search-form');
 const imgContainer = document.querySelector('.img-container');
 
-//заменить сообщения на библиотеку изитост
+//ЗАМЕНИТЬ МОДАЛКИ на библиотеку изитост
 
 formEl.addEventListener('submit', event => {
     event.preventDefault();
+
     const searchQuery = formEl.querySelector('.search-input').value;
 
     if(searchQuery.trim() !== '') {
+        imgContainer.innerHTML = '<p class="loading-message">Loading images, please wait...</p>';
         searchImages(searchQuery);
     } else {
         alert('Please enter a search query.');
