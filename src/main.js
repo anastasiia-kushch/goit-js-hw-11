@@ -1,9 +1,8 @@
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '41741201-12a642cf53882fe64e8e82723';
 const formEl = document.querySelector('.search-form');
+const imgContainer = document.querySelector('.img-container');
 
-const buttonEl = formEl.querySelector('.search-button');
-// fetch(`${BASE_URL}?key=${API_KEY}&q=${searchQuery}`)
 //заменить сообщения на библиотеку изитост
 
 formEl.addEventListener('submit', event => {
@@ -33,13 +32,11 @@ const searchImages = (query) => {
             displayImages(data.hits);
         })
         .catch(error => {
-            console.error('Error fetching data:', error);
-            alert('Error fetching data. Please try again later.');
+            console.error(error);
           });
 };
 
 const displayImages = (images) => {
-    const imgContainer = formEl.querySelector('.img-container');
     imgContainer.innerHTML = '';
 
     if(images.length > 0) {
